@@ -9,8 +9,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/apache/arrow/go/v8/arrow"
-	"github.com/apache/arrow/go/v8/arrow/array"
+	"github.com/apache/arrow/go/v9/arrow"
+	"github.com/apache/arrow/go/v9/arrow/array"
 	delta_sharing "github.com/delta-io/delta_sharing_go"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
