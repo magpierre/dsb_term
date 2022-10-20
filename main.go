@@ -11,8 +11,9 @@ import (
 
 	"github.com/apache/arrow/go/v9/arrow"
 	"github.com/apache/arrow/go/v9/arrow/array"
-	delta_sharing "github.com/delta-io/delta_sharing_go"
+
 	"github.com/gdamore/tcell/v2"
+	delta_sharing "github.com/magpierre/go_delta_sharing_client"
 	"github.com/rivo/tview"
 )
 
@@ -23,11 +24,10 @@ func renderResult(done chan interface{}, app *tview.Application, flex *tview.Fle
 
 	t, err := delta_sharing.LoadArrowTable(client, table, fileId)
 	if err != nil {
-		//dialog.SetMessage(fmt.Sprintf("Error: %s", err))
-		//pages = pages.AddAndSwitchToPage("error", dialog, true)
 		return
 	}
-	tr := array.NewTableReader(t, 100)
+
+	tr := array.NewTableReader(t, 1000)
 	tr.Retain()
 	for i := 0; i < int(t.NumCols()); i++ {
 		results.SetCell(0, i, tview.NewTableCell(t.Column(i).Name()).SetSelectable(false).SetAttributes(tcell.AttrBold).SetExpansion(2))
@@ -84,13 +84,13 @@ func renderResult(done chan interface{}, app *tview.Application, flex *tview.Fle
 
 		}
 	}
-
 	results.ScrollToBeginning()
 	app.Draw()
 	return
 }
 
 func main() {
+	//defer profile.Start(profile.CPUProfile, profile.ProfilePath(".")).Stop()
 	app := tview.NewApplication()
 	profile := flag.String("profile", "", "Profile path")
 	flag.Parse()
@@ -171,7 +171,6 @@ func main() {
 	screenLayout := tview.NewFlex().SetDirection(tview.FlexColumn)
 	flex2 := tview.NewFlex().SetDirection(tview.FlexRow)
 	dataLayout := tview.NewFlex().SetDirection(tview.FlexColumn)
-
 	files.SetSelectedFunc(func(index int, value string, value2 string, runeval rune) {
 		stats.Clear()
 		fileid = value
@@ -183,8 +182,8 @@ func main() {
 		}
 
 		var resultDone = make(chan interface{})
+		// Get data from Delta Lake table
 		go renderResult(resultDone, app, dataLayout, results, ds, tab[tableSelected], fileid)
-
 		var statDone = make(chan interface{})
 		go func(statDone chan interface{}) {
 			defer close(statDone)
