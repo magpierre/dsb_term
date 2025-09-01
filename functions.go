@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/apache/arrow/go/v9/arrow"
-	"github.com/apache/arrow/go/v9/arrow/array"
+	"github.com/apache/arrow-go/v18/arrow"
+	"github.com/apache/arrow-go/v18/arrow/array"
 	"github.com/gdamore/tcell/v2"
 	delta_sharing "github.com/magpierre/go_delta_sharing_client"
 	"github.com/rivo/tview"
@@ -43,7 +43,7 @@ func renderResult(
 	done chan interface{},
 	app *tview.Application,
 	results *tview.Table,
-	client interface{},
+	client delta_sharing.SharingClient,
 	table delta_sharing.Table,
 	fileId string,
 ) {

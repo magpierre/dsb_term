@@ -19,7 +19,7 @@ func main() {
 	profile := flag.String("profile", "", "Profile path")
 	flag.Parse()
 	s := strings.Split(*profile, "#")
-	ds, err := delta_sharing.NewSharingClient(context.Background(), s[0], "")
+	ds, err := delta_sharing.NewSharingClient(context.Background(), s[0])
 	if err != nil {
 		log.Fatal("Could not open sharing client.")
 		os.Exit(-1)
