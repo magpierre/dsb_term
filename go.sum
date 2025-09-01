@@ -161,6 +161,8 @@ github.com/lucasb-eyer/go-colorful v1.2.0 h1:1nnpGOrhyZZuNyfu1QjKiUICQ74+3FNCN69
 github.com/lucasb-eyer/go-colorful v1.2.0/go.mod h1:R4dSotOR9KMtayYi1e77YzuveK+i7ruzyGqttikkLy0=
 github.com/magpierre/go_delta_sharing_client v0.1.0 h1:GpkFdb4ys/K3SnSjfSGLppS/CEoAufg7eX2pKZzhHis=
 github.com/magpierre/go_delta_sharing_client v0.1.0/go.mod h1:4l/QYNmrzVWM9W+lTkLEQk0k49hKDQ1rdMJVIMuAK+E=
+github.com/magpierre/go_delta_sharing_client v0.1.1-0.20250901112243-ddfc210c45f7 h1:YPx636Hkbt41TBkKWGw2MstJXQmSD4TwDOZIunBhx6Y=
+github.com/magpierre/go_delta_sharing_client v0.1.1-0.20250901112243-ddfc210c45f7/go.mod h1:5ZOSSY+awt47YfAyz/Xc79N+M8Q9464ZohL8884/L5U=
 github.com/mattn/go-runewidth v0.0.16 h1:E5ScNMtiwvlvB5paMFdw9p4kSQzbXFikJ5SQO6TULQc=
 github.com/mattn/go-runewidth v0.0.16/go.mod h1:Jdepj2loyihRzMpdS35Xk/zdY8IAYHsh153qUoGf23w=
 github.com/minio/asm2plan9s v0.0.0-20200509001527-cdd76441f9d8 h1:AMFGa4R4MiIpspGNG7Z948v4n35fFGB3RR3G/ry4FWs=

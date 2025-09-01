@@ -4,7 +4,7 @@ go 1.23.0
 
 toolchain go1.23.2
 
-replace github.com/magpierre/go_delta_sharing_client => ../go_delta_sharing_client/
+// replace github.com/magpierre/go_delta_sharing_client => ../go_delta_sharing_client/
 
 require (
 	github.com/apache/arrow-go/v18 v18.4.0
