@@ -132,7 +132,7 @@ func main() {
 	inputForm.AddDropDown("Table", tableStrings, 0, func(option string, optionIndex int) {
 		tableSelected = option
 		results.Clear()
-		f, _ := ds.ListFilesInTable(tab[option])
+		f, err := ds.ListFilesInTable(tab[option])
 		if err != nil {
 			fmt.Println(err)
 			return
